@@ -65,8 +65,7 @@ def ResampleAndScore(clf, Trainset, n_samples, cv):
     """La fonction fait la cross-validation et appelle l'autre fonction pour print les résultats."""
     sample = resample(Trainset, n_samples=n_samples, replace=False, stratify=Trainset['revenue'], random_state=0)
     xTrain, yTrain = split_xy(sample)
-    print("test")
-    print("--Pour",n_samples, "échantillons avec le dataset",Trainset.name, "--")
+    print("--Pour",n_samples, "échantillons avec le dataset",Trainset.name, " et un cv de ", cv, "--")
     y_pred = cross_val_predict(clf, xTrain, yTrain, cv=cv)
     print(classification_report(yTrain, y_pred))
 
